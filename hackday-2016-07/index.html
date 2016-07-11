@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Rust no Tsuru</title>
+
+		<link rel="stylesheet" href="../reveal.js/css/reveal.css">
+		<link rel="stylesheet" href="../reveal.js/css/theme/globo.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="../reveal.js/lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '../reveal.js/css/print/pdf.css' : '../reveal.js/css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section data-background="#007fff">
+					<h1>Rust no Tsuru</h1>
+					<br><br>
+					<img class="plain" width="238" height="238" data-src="rust-white-logo.png" alt="Down arrow">
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<img class="plain" height="204" data-src="tsuru-white-logo.png" alt="Down arrow" style="padding-bottom: 17px;">
+					<br><br><br>
+					<p align="right">&lt;<a href="http://github.com/scorphus">Pablo Aguiar</a> /&gt; [<a href="http://twitter.com/scorphus">@scorphus</a>]</p>
+				</section>
+				<section data-background="#007fff">
+					<h2>Motivação</h2>
+					<br>
+					<ul>
+						<li style="font-size: 1.4em;">Tsuru como PaaS universal</li>
+						<li style="font-size: 1.4em;">Aprender</li>
+						<li style="font-size: 1.4em;">Contribuir</li>
+					</ul>
+				</section>
+				<section data-background="#000">
+					<h1><img class="plain" height="65" data-src="rec.png" alt="Down arrow" style="padding-bottom: 17px; vertical-align: middle;"> Deploy ao vivo!</h1>
+				</section>
+				<section data-background="#007fff">
+					<h2>Evoluções</h2>
+					<br><br>
+					<ul>
+						<li style="font-size: 1.4em;">Deploy customizado</li>
+						<li style="font-size: 1.4em;">Escolha entre <em>nightly</em>, <em>beta</em> e <em>stable</em></li>
+						<li style="font-size: 1.4em;">Deploy de binário</li>
+					</ul>
+				</section>
+				<section data-background="#007fff">
+					<img class="plain" width="238" height="238" data-src="rust-white-logo.png" alt="Down arrow">
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<img class="plain" height="204" data-src="tsuru-white-logo.png" alt="Down arrow" style="padding-bottom: 17px;">
+					<br><br><br>
+					<h4><code>tsuru app-create name rust -t team</code></h4>
+				</section>
+			</div>
+		</div>
+
+		<script src="../reveal.js/lib/js/head.min.js"></script>
+		<script src="../reveal.js/js/reveal.js"></script>
+
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: '../reveal.js/plugin/markdown/marked.js' },
+					{ src: '../reveal.js/plugin/markdown/markdown.js' },
+					{ src: '../reveal.js/plugin/notes/notes.js', async: true },
+					{ src: '../reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
