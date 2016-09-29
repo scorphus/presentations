@@ -1,0 +1,151 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Diagnóstico do Incidente com Plantão de Notícias do G1</title>
+
+		<link rel="stylesheet" href="../reveal.js/css/reveal.css">
+		<link rel="stylesheet" href="../reveal.js/css/theme/globo.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="../reveal.js/lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '../reveal.js/css/print/pdf.css' : '../reveal.js/css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section data-background="#007fff">
+					<h2>Diagnóstico do Incidente com Plantão de Notícias do G1</h2>
+					<br><br>
+					<p align="right">&lt;<a href="https://github.com/scorphus">Pablo Aguiar</a> /&gt; [<a href="https://globo.slack.com/messages">Feed Bastian</a>]</p>
+				</section>
+				<section data-background="#007fff">
+					<h2>Agenda</h2>
+					<ul>
+						<li>Causas</li>
+						<li>Ações</li>
+						<li>Como melhorar?</li>
+					</ul>
+				</section>
+				<section data-background="#007fff">
+					<h1>Causas</h1>
+				</section>
+				<section data-background="#007fff">
+					<h2>Causa 1/3</h2>
+					<h3>Falha no processo de desenvolvimento</h3>
+					<br>
+					<ul>
+						<li style="font-size: 1.4em;"><em>Lorem Post</em></li>
+						<ul>
+							<li style="font-size: 1.4em;">Figuras aleatórias</li>
+							<li style="font-size: 1.4em;">Conteúdo “lorem”</li>
+						</ul>
+					</ul>
+				</section>
+				<section data-background="#007fff">
+					<h2>Causa 2/3</h2>
+					<h3>Natureza do produto</h3>
+					<br>
+					<ul>
+						<li style="font-size: 1.4em;">Feed Produto 1:1 TenantID</li>
+						<ul>
+							<li style="font-size: 1.4em;">TenantID => <code>esearch_index</code></li>
+							<li style="font-size: 1.4em;">Widget reutiliza FeedID</li>
+						</ul>
+					</ul>
+				</section>
+				<section data-background="#007fff">
+					<h2>Causa 3/3</h2>
+					<h3>Falha no processo de validação</h3>
+					<br>
+					<ul>
+						<li style="font-size: 1.4em;">Não houve verificações (rotina)</li>
+						<li style="font-size: 1.4em;"><code>/teste-index-performance</code></li>
+						<ul>
+							<li style="font-size: 1.4em;">Raiz</li>
+							<li style="font-size: 1.4em;">Feed Produto</li>
+							<li style="font-size: 1.4em;">Com Interveniente</li>
+							<li style="font-size: 1.4em;">Usado no Plantão</li>
+						</ul>
+					</ul>
+				</section>
+				<section data-background="#007fff">
+					<h1>Ações</h1>
+				</section>
+				<section data-background="#007fff">
+					<h2>Ações tomadas (1/4)</h2>
+					<br>
+					<ul>
+						<li style="font-size: 1.4em;"><em style="text-decoration: line-through;">Lorem Posts</em></li>
+						<li style="font-size: 1.4em;"><em>Random Posts</em></li>
+					</ul>
+				</section>
+				<section data-background="#007fff">
+					<h2>Ações tomadas (2/4)</h2>
+					<br>
+					<ul>
+						<li style="font-size: 1.4em;">Highlight de Feeds de Produção</li>
+					</ul>
+					<img class="plain shadow" data-src="terminal.png" style="vertical-align: middle;">
+				</section>
+				<section data-background="#007fff">
+					<h2>Ações tomadas (3/4)</h2>
+					<br>
+					<ul>
+						<li style="font-size: 1.4em;">Nova versão do Widget Bastian</li>
+						<ul>
+							<li style="font-size: 1.4em;"><code>Feed 1:1 Índice+Interv</code></li>
+							<li style="font-size: 1.4em;"><code>1.13.1-rc1</code></li>
+						</ul>
+					</ul>
+				</section>
+				<section data-background="#007fff">
+					<h2>Ações tomadas (4/4)</h2>
+					<br>
+					<ul>
+						<li style="font-size: 1.4em;">Homes e Plantão no Dashboard</li>
+					</ul>
+				</section>
+				<section data-background="#007fff">
+					<h2>Home e Plantão G1</h2>
+					<img class="plain shadow" data-src="g1.png" style="vertical-align: middle;">
+				</section>
+				<section data-background="#007fff">
+					<h2>TechTudo e GShow</h2>
+					<img class="plain shadow" data-src="techtudo_gshow.png" style="vertical-align: middle;">
+				</section>
+				<section data-background="#007fff">
+					<h3>Como podemos melhorar nossos processos?</h3>
+				</section>
+			</div>
+		</div>
+
+		<script src="../reveal.js/lib/js/head.min.js"></script>
+		<script src="../reveal.js/js/reveal.js"></script>
+
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: '../reveal.js/plugin/markdown/marked.js' },
+					{ src: '../reveal.js/plugin/markdown/markdown.js' },
+					{ src: '../reveal.js/plugin/notes/notes.js', async: true },
+					{ src: '../reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
