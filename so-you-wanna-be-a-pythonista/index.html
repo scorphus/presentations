@@ -1,0 +1,401 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Plugin de replay de requests para o Tsuru</title>
+
+		<link rel="stylesheet" href="../reveal.js/css/reveal.css">
+		<link rel="stylesheet" href="../reveal.js/css/theme/tmh.css">
+
+		<!-- <link rel="stylesheet" href="../reveal.js/lib/css/zenburn.css"> -->
+		<link rel="stylesheet" href="styles/railscasts.css">
+
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '../reveal.js/css/print/pdf.css' : '../reveal.js/css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<style>
+			img {
+				background: none !important;
+				border: 0 !important;
+			}
+			.text-shadow {
+				text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.6), 1px 1px 10px rgba(0, 0, 0, 0.6) !important;
+			}
+			.top {
+				margin-top: -35% !important;
+			}
+			.top-left {
+				margin-top: -30% !important;
+				margin-left: -70% !important;
+			}
+			.bottom-right {
+				margin-top: -14% !important;
+				margin-right: -20% !important;
+				margin-left: 65% !important;
+			}
+			.meme h1,
+			.meme h2,
+			.meme h3 {
+				color: white;
+				font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+				text-shadow:
+					3px 3px 0 black,
+					3px -3px 0 black,
+					-3px -3px 0 black,
+					-3px 3px 0 black,
+					3px 2px 0 black,
+					3px -2px 0 black,
+					-3px -2px 0 black,
+					-3px 2px 0 black,
+					3px 1px 0 black,
+					3px -1px 0 black,
+					-3px -1px 0 black,
+					-3px 1px 0 black,
+					3px 0px 0 black,
+					3px 0px 0 black,
+					-3px 0px 0 black,
+					-3px 0px 0 black,
+					2px 3px 0 black,
+					2px -3px 0 black,
+					-2px -3px 0 black,
+					-2px 3px 0 black,
+					2px 2px 0 black,
+					2px -2px 0 black,
+					-2px -2px 0 black,
+					-2px 2px 0 black,
+					2px 1px 0 black,
+					2px -1px 0 black,
+					-2px -1px 0 black,
+					-2px 1px 0 black,
+					2px 0px 0 black,
+					2px 0px 0 black,
+					-2px 0px 0 black,
+					-2px 0px 0 black,
+					1px 3px 0 black,
+					1px -3px 0 black,
+					-1px -3px 0 black,
+					-1px 3px 0 black,
+					1px 2px 0 black,
+					1px -2px 0 black,
+					-1px -2px 0 black,
+					-1px 2px 0 black,
+					1px 1px 0 black,
+					1px -1px 0 black,
+					-1px -1px 0 black,
+					-1px 1px 0 black,
+					1px 0px 0 black,
+					1px 0px 0 black,
+					-1px 0px 0 black,
+					-1px 0px 0 black,
+					0px 3px 0 black,
+					0px -3px 0 black,
+					0px -3px 0 black,
+					0px 3px 0 black,
+					0px 2px 0 black,
+					0px -2px 0 black,
+					0px -2px 0 black,
+					0px 2px 0 black,
+					0px 1px 0 black,
+					0px -1px 0 black,
+					0px -1px 0 black,
+					0px 1px 0 black,
+					0px 0px 0 black,
+					0px 0px 0 black,
+					0px 0px 0 black,
+					0px 0px 0 black,
+					0 0 0 black;
+				-webkit-font-smoothing: antialiased;
+			}
+		</style>
+	</head>
+	<body>
+		<div height="30" style="font-size: 25px; font-family: Arial; color:#ddd; z-index: 1; position: absolute; left:4em; bottom: 0.8em;">
+			Pablo S Blum &lt;@scorphus&gt;
+		</div>
+		<img class="plain" height="30" src="tmh-white.png" alt="TMH" style="z-index: 1; position: absolute; right:8em; bottom: 1em;">
+		<div class="reveal">
+			<div class="slides">
+				<section data-background="Charlie_and_the_Chocolate-2Fc2.jpg" class="meme">
+					<h2>So you wanna be a</h2>
+					<br><br><br><br><br><br><br><br><br>
+					<h1>Pythonista</h1>
+				</section>
+
+
+
+
+
+				<!-- slide 1 ####################################### -->
+
+				<section data-background="#222">
+					<h2>Mainly</h2>
+					<br>
+					<ul>
+						<li style="font-size: 1.38em;">Loop like a Pythonista</li>
+						<li style="font-size: 1.38em;">Iterate like a Pythonista</li>
+						<li style="font-size: 1.38em;">Write idiomatic, clean, fast Python code</li>
+					</ul>
+				</section>
+
+
+
+
+
+				<!-- slide 2 ####################################### -->
+
+				<section data-background="#222">
+					<pre><code class="python" data-trim data-noescape>
+for n in range(10):
+    print(n)
+					</code></pre>
+					<pre class="fragment fade-up"><code class="python" data-trim data-noescape>
+items = ['foo', 'bar', 'spam', 'egg']
+					</code></pre>
+					<pre class="fragment fade-up"><code class="python" data-trim data-noescape>
+for i in range(len(items)):
+    print(items[i])
+					</code></pre>
+					<pre class="fragment fade-up"><code class="python" data-trim data-noescape>
+for item in items:
+    print(item)
+					</code></pre>
+					<aside class="notes"><ul>
+						<li><em>How do Java or C programmers write a for loop?</em></li>
+						<li><strong>How do they iterate over a list?</strong></li>
+						<li><strong>They do the same. They're used to that</strong></li>
+						<li><strong>What a Pythonista does instead?</strong>
+							<ol>
+								<li>This is Readable</li>
+								<li>Runs faster</li>
+								<li>And uses less memory</li>
+							</ol>
+						</li>
+						<li><em>That's so common that you can find code like that in TMH's repos...</em></li>
+					</ul></aside>
+				</section>
+
+
+
+
+
+				<!-- slide 3 ####################################### -->
+
+				<section data-background="#222">
+					Original:
+					<pre><code class="python" data-trim data-noescape>
+num_elem = len(input_list)
+ret_list = [current_val]
+
+for i in range(1, num_elem + 1):
+    value = ret_list[i - 1] - input_list[i - 1] / input_val
+    value = some_func(value)
+    ret_list.append(value)
+					</code></pre>
+					<div class="fragment fade-left">Refactored:
+					<pre><code class="python" data-trim data-noescape>
+ret_list = [current_val]
+
+for elem in input_list:
+    ret_list.append(some_func(
+        ret_list[-1] - elem / input_val
+    ))
+					</code></pre></div>
+					<aside class="notes"><ul>
+						<li><em>Var/func renamed but the code remains intact</em></li>
+						<li>At first sight this is a little difficult to grasp</li>
+						<li>You get the number of elements in the input list...</li>
+						<li>This is <strong>not</strong> readable!</li>
+						<li><strong>What would a Pythonista do instead?</strong>
+							<ol>
+								<li>This is Readable</li>
+								<li>Runs faster</li>
+								<li>And uses less memory</li>
+							</ol>
+						</li>
+					</ul></aside>
+				</section>
+
+
+
+
+
+				<!-- slide 4 ####################################### -->
+
+				<section data-background="#222">
+					<pre><code class="python" data-trim data-noescape>
+inventors = ['Edison', 'Bell', 'Ford', 'Franklin', 'Tesla']
+					</code></pre>
+					<pre class="fragment fade-up"><code class="python" data-trim data-noescape>
+for i in range(len(inventors), -1, -1):
+    print(inventors[i])
+					</code></pre>
+					<pre class="fragment fade-up"><code class="python" data-trim data-noescape>
+for inventor in reversed(inventors):
+    print(inventor)
+					</code></pre>
+					<aside class="notes"><ul>
+						<li><em>How do Java or C programmers loop backwards?</em></li>
+						<li><strong>They use their previous language mindset</strong></li>
+						<li><strong>What a Pythonista does instead?</strong>
+							<ol>
+								<li>This is Readable</li>
+								<li>Runs faster</li>
+								<li>And uses less memory</li>
+							</ol>
+						</li>
+						<li><em>That's so common that you can find code like that in TMH's repos...</em></li>
+					</ul></aside>
+				</section>
+
+
+
+
+
+				<!-- slide 5 ####################################### -->
+
+				<section data-background="#222">
+					Original:
+					<pre><code class="python" data-trim data-noescape>
+elif isinstance(value, tuple):
+    other = (value[i] for i in range(len(value) - 1, -1, -1))
+    return tuple(other)
+					</code></pre>
+					<div class="fragment fade-left">Refactored:
+					<pre><code class="python" data-trim data-noescape>
+elif isinstance(value, tuple):
+    return tuple(reversed(value))
+					</code></pre></div>
+					<aside class="notes"><ul>
+						<li><em>Again, vars renamed, code intact</em></li>
+						<li>You have to force yourself to understand that...</li>
+						<li>"Oh! It's just reversing a collection!"</li>
+						<li>This is <strong>not</strong> readable!</li>
+						<li><strong>What would a Pythonista do instead?</strong>
+							<ol>
+								<li>This is Readable</li>
+								<li>Runs faster</li>
+								<li>And uses less memory</li>
+							</ol>
+						</li>
+					</ul></aside>
+				</section>
+
+
+
+
+
+				<!-- slide 6 ####################################### -->
+
+				<section data-background="#222">
+					<pre><code class="python" data-trim data-noescape>
+inventors = ['Edison', 'Bell', 'Ford', 'Franklin', 'Tesla']
+					</code></pre>
+					<pre class="fragment fade-up"><code class="python" data-trim data-noescape>
+for i in range(len(inventors)):
+    print(f'{i}: {inventors[i]}')
+					</code></pre>
+					<pre class="fragment fade-up"><code class="python" data-trim data-noescape>
+for i, inventor in enumerate(inventors):
+    print(f'{i}: {inventor}')
+					</code></pre>
+					<aside class="notes"><ul>
+						<li><em>How do Java or C programmers loop with an index?</em></li>
+						<li><strong>They use their previous language mindset</strong></li>
+						<li><strong>What a Pythonista does instead?</strong>
+							<ol>
+								<li>This is Readable</li>
+								<li>Runs faster</li>
+								<li>And uses less memory</li>
+							</ol>
+						</li>
+						<li><em>That's so common that you can find code like that in TMH's repos...</em></li>
+					</ul></aside>
+				</section>
+
+
+
+
+
+				<!-- slide 7 ####################################### -->
+
+				<section data-background="#222">
+					Original:
+					<pre><code class="python" data-trim data-noescape>
+def append_blah(self, xyz_vector):
+    sz = len(self.blah)
+    for i in range(len(xyz_vector)):
+        if i < sz:
+            self.blah[i] += xyz_vector[i]
+        else:
+            self.blah.append(xyz_vector[i])
+					</code></pre>
+					<div class="fragment fade-left">Improved:
+					<pre><code class="python" data-trim data-noescape>
+def append_blah(self, xyz_vector):
+    for i, xyz in enumerate(xyz_vector):
+        <mark>if i < len(self.blah):</mark>
+            self.blah[i] += xyz
+        else:
+            self.blah.append(xyz)
+					</code></pre></div>
+					<div class="fragment fade-left">Refactored:
+					<pre><code class="python" data-trim data-noescape>
+def append_blah(self, xyz_vector):
+    self.blah[:len(xyz_vector)] = xyz_vector
+					</code></pre></div>
+					<aside class="notes"><ul>
+						<li><em>Again, func and vars renamed, code intact</em></li>
+						<li>You have to <strong>really</strong> concentrate to read this</li>
+						<li>And understand it</li>
+						<li>But it's <strong>not</strong> readable!</li>
+						<li><strong>What would a Pythonista do instead?</strong>
+							<ol>
+								<li>This is Readable</li>
+								<li>Runs faster</li>
+								<li>And uses less memory</li>
+							</ol>
+						</li>
+						<li><strong>But is a Pythonista happy with that? No!</strong></li>
+						<li>You gotta be in the Python mindset!</li>
+					</ul></aside>
+				</section>
+
+
+
+
+
+				<section data-background="hammer-screw.jpg" class="meme">
+						<h2>Let's all Understand</h2>
+						<h2>and use the</h2>
+						<br><br><br><br><br><br>
+						<h1>Python Mindset</h1>
+					</section>
+				</div>
+		</div>
+
+		<script src="../reveal.js/lib/js/head.min.js"></script>
+		<script src="../reveal.js/js/reveal.js"></script>
+
+		<script>
+			Reveal.initialize({
+				controls: false,
+				history: true,
+				dependencies: [
+					{ src: '../reveal.js/plugin/markdown/marked.js' },
+					{ src: '../reveal.js/plugin/markdown/markdown.js' },
+					{ src: '../reveal.js/plugin/notes/notes.js', async: true },
+					{ src: 'socket.io/socket.io.js', async: true },
+					{ src: 'plugin/notes-server/client.js', async: true },
+					{ src: '../reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+				]
+			});
+		</script>
+	</body>
+</html>
