@@ -133,12 +133,7 @@ for item in items:
 						<li><strong>But how do they iterate over a list?</strong></li>
 						<li><strong>They do the same. They're used to that</strong></li>
 						<li><strong>What a Pythonista does instead?</strong>
-							<ol>
-								<li>This. It's Readable</li>
-								<li>Runs faster</li>
-								<li>And uses less memory</li>
-							</ol>
-						</li>
+						<li>This. It's Readable, Runs faster &amp; Uses less mem</li>
 						<li><em>That's so common that you can find code like that in TMH's repos...</em></li>
 					</ul></aside>
 				</section>
@@ -171,12 +166,7 @@ for elem in input_list:
 						<li>You get the number of elements in the input list...</li>
 						<li>Well... This is <strong>not</strong> readable!</li>
 						<li><strong>What would a Pythonista do instead?</strong>
-							<ol>
-								<li>This. It's Readable</li>
-								<li>Runs faster</li>
-								<li>And uses less memory</li>
-							</ol>
-						</li>
+						<li>This. It's Readable, Runs faster &amp; Uses less mem</li>
 					</ul></aside>
 				</section>
 
@@ -203,12 +193,7 @@ for inventor in reversed(inventors):
 						<li><em>How do Java or C programmers loop backwards?</em></li>
 						<li><strong>They use their previous language mindset</strong></li>
 						<li><strong>What a Pythonista does instead?</strong>
-							<ol>
-								<li>This. It's Readable</li>
-								<li>Runs faster</li>
-								<li>And uses less memory</li>
-							</ol>
-						</li>
+						<li>This. It's Readable, Runs faster &amp; Uses less mem</li>
 						<li><em>That's so common that you can find code like that in TMH's repos...</em></li>
 					</ul></aside>
 				</section>
@@ -235,12 +220,7 @@ elif isinstance(value, tuple):
 						<li>"Oh! It's just reversing a collection!"</li>
 						<li>This is <strong>not</strong> readable!</li>
 						<li><strong>What would a Pythonista do instead?</strong>
-							<ol>
-								<li>This. It's Readable</li>
-								<li>Runs faster</li>
-								<li>And uses less memory</li>
-							</ol>
-						</li>
+						<li>This. It's Readable, Runs faster &amp; Uses less mem</li>
 					</ul></aside>
 				</section>
 
@@ -267,12 +247,7 @@ for i, inventor in enumerate(inventors):
 						<li><em>How do Java or C programmers loop with an index?</em></li>
 						<li><strong>They use their previous language mindset</strong></li>
 						<li><strong>What a Pythonista does instead?</strong>
-							<ol>
-								<li>Enumerate! That's Readable</li>
-								<li>Runs faster</li>
-								<li>And uses less memory</li>
-							</ol>
-						</li>
+						<li>Enumerate! It's Readable, Runs faster &amp; Uses less mem</li>
 						<li><em>That's so common that you can find code like that in TMH's repos...</em></li>
 					</ul></aside>
 				</section>
@@ -310,12 +285,7 @@ def append_to_some_list(self, xyz_vector):
 							to be able to read this... and understand it...</li>
 						<li>But it's <strong>not</strong> readable!</li>
 						<li><strong>What would a Pythonista do instead?</strong>
-							<ol>
-								<li>This. It's Readable</li>
-								<li>Runs faster</li>
-								<li>And uses less memory</li>
-							</ol>
-						</li>
+						<li>This. It's Readable, Runs faster &amp; Uses less mem</li>
 						<li><strong>But is a Pythonista happy with that? No!</strong></li>
 						<li>You gotta be in the Python mindset!</li>
 					</ul></aside>
@@ -345,12 +315,7 @@ for inventor, invention in zip(inventors, inventions):
 						<li><em>How do Java or C programmers loop over two collections?</em></li>
 						<li><strong>They use their previous language mindset</strong></li>
 						<li><strong>What a Pythonista does instead?</strong>
-							<ol>
-								<li>Zip! It's Readable</li>
-								<li>Runs faster</li>
-								<li>And uses less memory</li>
-							</ol>
-						</li>
+						<li>Zip! It's Readable, Runs faster &amp; Uses less mem</li>
 						<li><em>That's so common that you can find code like that in TMH's repos...</em></li>
 					</ul></aside>
 				</section>
@@ -386,12 +351,7 @@ result_list = [some_func(color=c, label=l)
 						<li>Again hard to read and understand because...</li>
 						<li>Yeah, it's <strong>not</strong> readable!</li>
 						<li><strong>What would a Pythonista do instead?</strong>
-							<ol>
-								<li>This. It's Readable</li>
-								<li>Runs faster</li>
-								<li>And uses less memory</li>
-							</ol>
-						</li>
+						<li>This. It's Readable, Runs faster &amp; Uses less mem</li>
 						<li><strong>But, is a Pythonista happy with that? No!</strong></li>
 						<li>You gotta be in the Python mindset!</li>
 					</ul></aside>
@@ -434,13 +394,8 @@ for inventor in sorted(inventors, key=itemgetter('name')):
 						<li><em>How do Java or C programmers loop over a collection in some order?</em></li>
 						<li><strong>They use their previous language mindset</strong></li>
 						<li><strong>What a Pythonista does instead?</strong>
-							<ol>
-								<li>Sorted! It's Readable</li>
-								<li>Runs faster</li>
-								<li>And uses less memory</li>
-							</ol>
-						</li>
-						<li><strong>Anything non-Pythonic in there?</strong></li>
+						<li>Sorted! It's Readable, Runs faster &amp; Uses less mem</li>
+						<li><strong>Anything non-Pythonic in there? (cmp func)</strong></li>
 						<li>Yes! In fact comparison functions were removed from Python 3!</li>
 						<li><em>That's also common and you can find code like that in TMH's repos...</em></li>
 					</ul></aside>
@@ -472,12 +427,7 @@ for e in sorted(self.data, key=attrgetter('criteria')):
 						<li>Original code doesn't work with Python 3</li>
 						<li>And it's <strong>not</strong> readable!</li>
 						<li><strong>What would a Pythonista do instead?</strong>
-							<ol>
-								<li>Key function! It's Readable</li>
-								<li>Runs faster</li>
-								<li>And uses less memory</li>
-							</ol>
-						</li>
+						<li>Key function! It's Readable, Runs faster &amp; Uses less mem</li>
 						<li><em>You gotta know the Python Standard Library!</em></li>
 					</ul></aside>
 				</section>
@@ -491,9 +441,90 @@ for e in sorted(self.data, key=attrgetter('criteria')):
 					<h2>A Pythonista's strength</h2>
 					<h2>flows from the</h2>
 					<br><br><br><br>
-					<h1>Python Standard Library</h1>
+					<h1>Standard Library</h1>
 				</section>
 
+
+
+
+
+				<!-- #################### SLIDE START ##################### -->
+
+				<section data-background="#222">
+					<pre><code class="python" data-trim data-noescape>
+import random
+
+def randdigit():
+    return random.randint(0, 9)
+					</code></pre>
+					<pre class="fragment fade-up"><code class="python" data-trim data-noescape>
+while True:
+    digit = randdigit()
+    if digit == 0:
+        break
+    print(digit)
+					</code></pre>
+					<pre class="fragment fade-up"><code class="python" data-trim data-noescape>
+for digit in iter(randdigit, 0):
+    print(digit)
+					</code></pre>
+					<pre class="fragment fade-up"><code class="python" data-trim data-noescape>
+import functools
+
+randdigit = functools.partial(random.randint, 0, 9)
+print(randdigit())
+					</code></pre>
+					<pre class="fragment fade-up"><code class="python" data-trim data-noescape>
+randdigit = functools.partial(random.randint, a=0, b=9)
+print(randdigit())
+					</code></pre>
+					<pre class="fragment fade-up"><code class="python" data-trim data-noescape>
+randnatural = functools.partial(random.randint, a=0)
+print(randnatural(359))
+					</code></pre>
+					<aside class="notes"><ul>
+						<li><em>How do Java or C programmers loop with a sentinel?
+						For example, how to print a random digit until it's zero?
+						</em></li>
+						<li><strong>They use their previous language mindset</strong></li>
+						<li><strong>What a Pythonista does instead?</strong>
+						<li>Iter! It's Readable, Runs faster &amp; Uses less mem</li>
+						<li><strong>Anything else Pythonistas do differently?</strong>
+						<li><em>Now that infinite loop is so common that it exists in TMH's repos...</em></li>
+					</ul></aside>
+				</section>
+
+				<!-- #################### SLIDE INTERMISSION ##################### -->
+
+				<section data-background="#222">
+					Original:
+					<pre><code class="python" data-trim data-noescape>
+result = []
+f = open(some_file, 'r')
+while True:
+    l = f.readline()
+    if l == '':
+        break
+    l = l.rstrip()
+    result.append(l)
+f.close()
+					</code></pre>
+					<div class="fragment fade-left">Refactored:
+					<pre><code class="python" data-trim data-noescape>
+with open(some_file) as f:
+    result = [l.rstrip() for l in iter(f.readline, '')]
+					</code></pre></div>
+					<aside class="notes"><ul>
+						<li><em>Func and vars renamed, code intact</em></li>
+						<li>There are a few issues with the original code, right?</li>
+						<li>Other than it being not readable</li>
+						<li><strong>What would a Pythonista do instead?</strong>
+						<li>A Pythonista writes <strong>Pythonic code</strong>!
+							That is Readable, Runs faster &amp; Uses less mem</li>
+					</ul></aside>
+				</section>
+
+				<!-- #################### SLIDE FINISH #################### -->
 
 
 
