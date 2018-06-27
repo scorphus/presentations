@@ -418,13 +418,111 @@ result_list = [some_func(color=c, label=l)
 
 
 
+				<!-- slide 10 ####################################### -->
+
+				<section data-background="#222">
+					<pre><code class="python" data-trim data-noescape>
+inventors = [
+    {'name': 'Edison'},
+    {'name': 'Bell'},
+    {'name': 'Ford'},
+    {'name': 'Franklin'},
+    {'name': 'Tesla'},
+]
+					</code></pre>
+					<pre class="fragment fade-up"><code class="python" data-trim data-noescape>
+inventors.sort(cmp=lambda a, b: cmp(a['name'], b['name']))
+for i in range(len(inventions)):
+    print(inventors[i])
+					</code></pre>
+					<pre class="fragment fade-up"><code class="python" data-trim data-noescape>
+for inventor in sorted(inventors,
+                       cmp=lambda a, b: cmp(a['name'], b['name'])):
+    print(inventor)
+					</code></pre>
+					<pre class="fragment fade-up"><code class="python" data-trim data-noescape>
+from operator import itemgetter
+
+for inventor in sorted(inventors, key=itemgetter('name')):
+    print(inventor)
+					</code></pre>
+					<aside class="notes"><ul>
+						<li><em>How do Java or C programmers loop over a collection in some order?</em></li>
+						<li><strong>They use their previous language mindset</strong></li>
+						<li><strong>What a Pythonista does instead?</strong>
+							<ol>
+								<li>Sorted! It's Readable</li>
+								<li>Runs faster</li>
+								<li>And uses less memory</li>
+							</ol>
+						</li>
+						<li><strong>Anything non-Pythonic in there?</strong></li>
+						<li>Yes! In fact comparison functions were removed from Python 3!</li>
+						<li><em>That's also common and you can find code like that in TMH's repos...</em></li>
+					</ul></aside>
+				</section>
+
+
+
+
+
+				<!-- slide 11 ####################################### -->
+
+				<section data-background="#222">
+					Original:
+					<pre><code class="python" data-trim data-noescape>
+# ...
+self.data.sort(cmp=lambda b, a: cmp(getattr(a, criteria),
+                                getattr(b, criteria)))
+for e in self.data:
+    if e.some_attribute:
+        # ...
+					</code></pre>
+					<div class="fragment fade-left">Refactored:
+					<pre><code class="python" data-trim data-noescape>
+# ...
+from operator import attrgetter
+# ...
+for e in sorted(self.data, key=attrgetter('criteria')):
+    if e.some_attribute:
+        # ...
+					</code></pre></div>
+					<aside class="notes"><ul>
+						<li><em>Func and vars renamed, code intact</em></li>
+						<li>Original code doesn't work with Python 3</li>
+						<li>And it's <strong>not</strong> readable!</li>
+						<li><strong>What would a Pythonista do instead?</strong>
+							<ol>
+								<li>Key function! It's Readable</li>
+								<li>Runs faster</li>
+								<li>And uses less memory</li>
+							</ol>
+						</li>
+						<li><em>You gotta know the Python Standard Library!</em></li>
+					</ul></aside>
+				</section>
+
+
+
+
+
+				<section data-background="Yoda-Force-Lightning-Featured.jpg" class="meme">
+					<h2>A Pythonista's strength</h2>
+					<h2>flows from the</h2>
+					<br><br><br><br>
+					<h1>Python Standard Library</h1>
+				</section>
+
+
+
+
+
 				<section data-background="hammer-screw.jpg" class="meme">
-						<h2>Let's all Understand</h2>
-						<h2>and use the</h2>
-						<br><br><br><br><br><br>
-						<h1>Python Mindset</h1>
-					</section>
-				</div>
+					<h2>Let's all Understand</h2>
+					<h2>and use the</h2>
+					<br><br><br><br><br><br>
+					<h1>Python Mindset</h1>
+				</section>
 		</div>
 
 		<script src="lib/js/head.min.js"></script>
