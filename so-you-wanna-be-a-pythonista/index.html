@@ -6,17 +6,20 @@
 
 		<title>Plugin de replay de requests para o Tsuru</title>
 
-		<link rel="stylesheet" href="../reveal.js/css/reveal.css">
-		<link rel="stylesheet" href="../reveal.js/css/theme/tmh.css">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/tmh.css">
 
-		<!-- <link rel="stylesheet" href="../reveal.js/lib/css/zenburn.css"> -->
-		<link rel="stylesheet" href="styles/railscasts.css">
+		<!-- <link rel="stylesheet" href="styles/monokai.css"> -->
+		<!-- <link rel="stylesheet" href="styles/monokai-sublime.css"> -->
+		<!-- <link rel="stylesheet" href="styles/railscasts.css"> -->
+		<link rel="stylesheet" href="styles/tomorrow-night-eighties.css">
+		<!-- <link rel="stylesheet" href="styles/zenburn.css"> -->
 
 		<script>
 			var link = document.createElement( 'link' );
 			link.rel = 'stylesheet';
 			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? '../reveal.js/css/print/pdf.css' : '../reveal.js/css/print/paper.css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
 			document.getElementsByTagName( 'head' )[0].appendChild( link );
 		</script>
 
@@ -328,32 +331,32 @@ for i, inventor in enumerate(inventors):
 				<section data-background="#222">
 					Original:
 					<pre><code class="python" data-trim data-noescape>
-def append_blah(self, xyz_vector):
-    sz = len(self.blah)
+def append_to_some_list(self, xyz_vector):
+    size = len(self.some_list)
     for i in range(len(xyz_vector)):
-        if i < sz:
-            self.blah[i] += xyz_vector[i]
+        if i < size:
+            self.some_list[i] += xyz_vector[i]
         else:
-            self.blah.append(xyz_vector[i])
+            self.some_list.append(xyz_vector[i])
 					</code></pre>
 					<div class="fragment fade-left">Improved:
 					<pre><code class="python" data-trim data-noescape>
-def append_blah(self, xyz_vector):
+def append_to_some_list(self, xyz_vector):
     for i, xyz in enumerate(xyz_vector):
-        <mark>if i < len(self.blah):</mark>
-            self.blah[i] += xyz
+        <mark>if i < len(self.some_list):</mark>
+            self.some_list[i] += xyz
         else:
-            self.blah.append(xyz)
+            self.some_list.append(xyz)
 					</code></pre></div>
 					<div class="fragment fade-left">Refactored:
 					<pre><code class="python" data-trim data-noescape>
-def append_blah(self, xyz_vector):
-    self.blah[:len(xyz_vector)] = xyz_vector
+def append_to_some_list(self, xyz_vector):
+    self.some_list[:len(xyz_vector)] = xyz_vector
 					</code></pre></div>
 					<aside class="notes"><ul>
 						<li><em>Again, func and vars renamed, code intact</em></li>
-						<li>You have to <strong>really</strong> concentrate to read this</li>
-						<li>And understand it</li>
+						<li>You have to <strong>really</strong> concentrate
+							to be able to read this... and understand it...</li>
 						<li>But it's <strong>not</strong> readable!</li>
 						<li><strong>What would a Pythonista do instead?</strong>
 							<ol>
@@ -380,21 +383,22 @@ def append_blah(self, xyz_vector):
 				</div>
 		</div>
 
-		<script src="../reveal.js/lib/js/head.min.js"></script>
-		<script src="../reveal.js/js/reveal.js"></script>
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
 
 		<script>
 			Reveal.initialize({
 				controls: false,
 				history: true,
 				dependencies: [
-					{ src: '../reveal.js/plugin/markdown/marked.js' },
-					{ src: '../reveal.js/plugin/markdown/markdown.js' },
-					{ src: '../reveal.js/plugin/notes/notes.js', async: true },
 					{ src: 'socket.io/socket.io.js', async: true },
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
 					{ src: 'plugin/notes-server/client.js', async: true },
-					{ src: '../reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-				]
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+				],
+				progress: false,
 			});
 		</script>
 	</body>
