@@ -549,8 +549,7 @@ if not supported:
     raise ActionNotSupported(action)
 # ...
 					</code></pre>
-					<div class="fragment fade-left">
-					<pre><code class="python" data-trim data-noescape>
+					<pre class="fragment fade-left"><code class="python" data-trim data-noescape>
 # ...
 for method in methods:
     if method.support(action):
@@ -559,7 +558,7 @@ for method in methods:
 else:
     raise ActionNotSupported(action)
 # ...
-					</code></pre></div>
+					</code></pre>
 					<aside class="notes"><ul>
 						<li><em>How do Java or C programmers know if a certain
 							for loop hit a break or not?</em></li>
@@ -577,11 +576,11 @@ else:
 					Original:
 					<pre><code class="python" data-trim data-noescape>
 ok = False
-for i in range(an_index-1, -1, -1):
-    an_ord = a_dict.get(ord(a_list[i]))
-    if an_ord == ord('T'):
+for i in range(some_index-1, -1, -1):
+    some_ord = some_dict.get(ord(some_list[i]))
+    if some_ord == ord('T'):
         continue
-    if an_ord in [ord('L'), ord('D')]:
+    if some_ord in [ord('L'), ord('D')]:
         ok = True
         break
 
@@ -589,11 +588,11 @@ if not ok:
     return False
 
 ok = False
-for i in range(an_index+1, len(a_list)):
-    an_ord = a_dict.get(ord(a_list[i]))
-    if an_ord == ord('T'):
+for i in range(some_index+1, len(some_list)):
+    some_ord = some_dict.get(ord(some_list[i]))
+    if some_ord == ord('T'):
         continue
-    if an_ord in [ord('R'), ord('D')]:
+    if some_ord in [ord('R'), ord('D')]:
         ok = True
         break
 return ok
@@ -611,24 +610,34 @@ return ok
 				<!-- #################### SLIDE INTERMISSION ##################### -->
 
 				<section data-background="#222">
+					Improved
 					<pre><code class="python" data-trim data-noescape>
-<span class="fragment fade-out">for el in a_list[an_index-1::-1]:</span>
-<span class="fragment fade-in">for el in list(islice(reversed(a_list), an_index, len(a_list))):</span>
-    an_ord = a_dict.get(ord(el))
-    if an_ord == ord('T'):
+for el in some_list[some_index-1::-1]:
+    some_ord = some_dict.get(ord(el))
+    if some_ord == ord('T'):
         continue
-    if an_ord in [ord('L'), ord('D')]:
+    if some_ord in [ord('L'), ord('D')]:
         break
 else:
     return False
 					</code></pre>
+					<pre class="fragment fade-left"><code class="python" data-trim data-noescape>
+from itertools import islice
+
+for el in islice(reversed(some_list), some_index, None):
+<span class="fragment fade-in">    if some_dict.get(ord(el)) in [ord('L'), ord('D')]:
+        break
+else:
+    return False
+</span>
+	</code></pre>
 					<div class="fragment fade-left">Refactored:
 					<pre><code class="python" data-trim data-noescape>
-for el in a_list[an_index:]:
-    an_ord = a_dict.get(ord(el))
-    if an_ord == ord('T'):
+for el in some_list[some_index:]:
+    some_ord = some_dict.get(ord(el))
+    if some_ord == ord('T'):
         continue
-    if an_ord in [ord('L'), ord('D')]:
+    if some_ord in [ord('L'), ord('D')]:
         return True
 return False
 					</code></pre></div>
