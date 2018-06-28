@@ -90,6 +90,24 @@ for i in range(some_index+1, len(some_list)):
 return ok
 
 
+for el in some_list[some_index:0:-1]:
+    some_num = some_dict.get(ord(el))
+    if some_num == ord('T'):
+        continue
+    if some_num in [ord('L'), ord('D')]:
+        break
+else:
+    return False
+
+for el in some_list[some_index:]:
+    some_num = some_dict.get(ord(el))
+    if some_num == ord('T'):
+        continue
+    if some_num in [ord('L'), ord('D')]:
+        return True
+return False
+
+
 
 # WTF
 if cp_value == 0x200d:
