@@ -68,8 +68,7 @@
 					<br><br><br><br><br><br><br><br>
 					<h1>Pythonista</h1>
 					<aside class="notes"><ul>
-						<li>Abandon your previous mindset entirely</li>
-						<li>Free your mind of whatever previous mindset you have</li>
+						<li>Abandon your previous mindset entirely... Free your mind of whatever previous mindset you have</li>
 						<li>Either if it's a Java mindset, C, C++, Perl, whatever</li>
 						<li>You gotta be in the Python mindset</li>
 					</ul></aside>
@@ -80,14 +79,50 @@
 
 
 				<section data-background="#222">
-					<h2>Mainly</h2>
+					<h2>Part 1</h2>
 					<br>
 					<ul>
 						<li style="font-size: 1.38em;">Loop like a Pythonista</li>
 						<li style="font-size: 1.38em;">Iterate like a Pythonista</li>
 						<li style="font-size: 1.38em;">Write idiomatic, clean, fast
-							&amp; efficient <strong><em>*Python*</em></strong> code</li>
+							&amp; efficient <strong><em>Pythonic</em></strong> code</li>
 					</ul>
+					<aside class="notes"><ul>
+						<li>This is such a large subject for brief talk</li>
+						<li>So I’ll split it in two parts</li>
+						<li>Today we'll talk about loops, iteration, </li>
+						<li>And why it's important to write clean and pythonic code</li>
+					</ul></aside>
+				</section>
+
+
+
+
+
+				<section data-background="#222">
+					<h2>Key takeaways</h2>
+					<br>
+					<ul>
+						<li style="font-size: 1.38em;">Write cleanly and pythonic
+							<ul>
+								<li>Readability</li>
+								<li>Simplicity</li>
+								<li>Maintainability</li>
+								<li>Shallow learning curve</li>
+								<li>Focus on business logic</li>
+								<li>No hassle (don't fight the snake)</li>
+							</ul>
+						</li>
+					</ul>
+					<aside class="notes"><ul>
+						<li>Writing clean and pythonic code not only increases readability,
+							simplicity and maintainability</li>
+						<li>it also flattens the learning curve for a newcomer Pythonista</li>
+						<li>in a way that one can focus on the business logic</li>
+						<li>without losing time deciphering non-pythonic codebases.</li>
+						<li>I present this for I believe we can all be better Pythonistas</li>
+						<li><strong>So, without further ado...</strong></li>
+					</ul></aside>
 				</section>
 
 
@@ -98,6 +133,7 @@
 					<h2>Loops</h2>
 					<br><br><br><br><br><br><br><br>
 					<h1>Loops everywhere</h1>
+					<aside class="notes">Let's talk about loops!</aside>
 				</section>
 
 
@@ -129,12 +165,15 @@ for item in items:
 					</code></pre>
 					<aside class="notes"><ul>
 						<li><em>This is how Java or C programmers write a for loop</em></li>
-						<li><strong>How do they write a loop in Python?</strong></li>
-						<li><strong>But how do they iterate over a list?</strong></li>
+						<li>And that's ok for Java, C and may other languages</li>
+						<li><strong>Then how do they write a for loop in Python?</strong></li>
+						<li>That's how it's done in Python, right?</li>
+						<li><strong>But... how do they iterate over a list?</strong></li>
 						<li><strong>They do the same. They're used to that</strong></li>
 						<li><strong>What a Pythonista does instead?</strong>
 						<li>This. It's Readable, Runs faster &amp; Uses less mem</li>
-						<li><em>That's so common that you can find code like that in our repos...</em></li>
+						<li><em>That's so common, you see so much of that out there.
+							In fact you can even find code worse than that in TMH's repos...</em></li>
 					</ul></aside>
 				</section>
 
@@ -161,10 +200,12 @@ for elem in input_list:
     ))
 					</code></pre></div>
 					<aside class="notes"><ul>
-						<li><em>Var/func renamed but the code remains intact</em></li>
+						<li><em>So, the variables and functions were renamed but
+							the code itself remains intact</em></li>
 						<li>At first sight this is a little difficult to grasp</li>
-						<li>You get the number of elements in the input list...</li>
-						<li>Well... This is <strong>not</strong> readable!</li>
+						<li>You get the number of elements in the input list...
+							Create a new list... then iterate over it in a...</li>
+						<li>Well... Very <strong>unreadable</strong> way!</li>
 						<li><strong>What would a Pythonista do instead?</strong>
 						<li>This. It's Readable, Runs faster &amp; Uses less mem</li>
 					</ul></aside>
@@ -193,7 +234,7 @@ for inventor in reversed(inventors):
 						<li><em>How do Java or C programmers loop backwards?</em></li>
 						<li><strong>They use their previous language mindset</strong></li>
 						<li><strong>What a Pythonista does instead?</strong>
-						<li>This. It's Readable, Runs faster &amp; Uses less mem</li>
+						<li>Reversed! It's Readable, Runs faster &amp; Uses less mem</li>
 						<li><em>That's so common that you can find code like that in our repos...</em></li>
 					</ul></aside>
 				</section>
@@ -406,7 +447,6 @@ for inventor in sorted(inventors, key=itemgetter('name')):
 				<section data-background="#222">
 					Original:
 					<pre><code class="python" data-trim data-noescape>
-# ...
 self.data.sort(cmp=lambda b, a: cmp(getattr(a, criteria),
                                 getattr(b, criteria)))
 for e in self.data:
@@ -415,9 +455,8 @@ for e in self.data:
 					</code></pre>
 					<div class="fragment fade-left">Refactored:
 					<pre><code class="python" data-trim data-noescape>
-# ...
 from operator import attrgetter
-# ...
+
 for e in sorted(self.data, key=attrgetter('criteria')):
     if e.some_attribute:
         # ...
@@ -500,7 +539,6 @@ print(randnatural(359))
 				<section data-background="#222">
 					Original:
 					<pre><code class="python" data-trim data-noescape>
-# ...
 result = []
 f = open(some_file, 'r')
 while True:
@@ -512,11 +550,15 @@ while True:
 f.close()
 return result
 					</code></pre>
-					<div class="fragment fade-left">Refactored:
+					<div class="fragment fade-left">Improved:
 					<pre><code class="python" data-trim data-noescape>
-# ...
 with open(some_file) as f:
     return [l.rstrip() for l in iter(f.readline, '')]
+					</code></pre></div>
+					<div class="fragment fade-left">Refactored:
+					<pre><code class="python" data-trim data-noescape>
+with open(some_file) as f:
+    return [l.rstrip() for l in f.readlines()]
 					</code></pre></div>
 					<aside class="notes"><ul>
 						<li><em>Func and vars renamed, code intact</em></li>
@@ -525,6 +567,8 @@ with open(some_file) as f:
 						<li><strong>What would a Pythonista do instead?</strong>
 						<li>A Pythonista writes <strong>Pythonic code</strong>!
 							That is Readable, Runs faster &amp; Uses less mem</li>
+						<li><strong>Still anything unusual?</strong></li>
+						<li>Readability counts!</li>
 					</ul></aside>
 				</section>
 
@@ -537,7 +581,6 @@ with open(some_file) as f:
 
 				<section data-background="#222">
 					<pre><code class="python" data-trim data-noescape>
-# ...
 supported = False
 for i in range(methods):
     if methods[i].support(action):
@@ -547,22 +590,20 @@ for i in range(methods):
 
 if not supported:
     raise ActionNotSupported(action)
-# ...
 					</code></pre>
 					<pre class="fragment fade-left"><code class="python" data-trim data-noescape>
-# ...
 for method in methods:
     if method.support(action):
         self.method = method
         break
 else:
     raise ActionNotSupported(action)
-# ...
 					</code></pre>
 					<aside class="notes"><ul>
 						<li><em>How do Java or C programmers know if a certain
 							for loop hit a break or not?</em></li>
-						<li>They do like they always have</li>
+						<li>They do like they always have. With a flag. Why? Just
+							because that's how it works in every language they know!</li>
 						<li><strong>What a Pythonista does instead?</strong>
 						<li>Else! It's Readable, Runs faster &amp; Uses less mem</li>
 						<li><em>Yeah, there is code like that in our repos...</em></li>
@@ -572,11 +613,11 @@ else:
 
 				<!-- #################### SLIDE INTERMISSION ##################### -->
 
-				<section data-background="#222">
+				<section data-background="#222" data-transition="slide fade-out">
 					Original:
 					<pre><code class="python" data-trim data-noescape>
 ok = False
-for i in range(some_index-1, -1, -1):
+for i in range(certain_index-1, -1, -1):
     some_ord = some_dict.get(ord(some_list[i]))
     if some_ord == ord('T'):
         continue
@@ -588,7 +629,7 @@ if not ok:
     return False
 
 ok = False
-for i in range(some_index+1, len(some_list)):
+for i in range(certain_index+1, len(some_list)):
     some_ord = some_dict.get(ord(some_list[i]))
     if some_ord == ord('T'):
         continue
@@ -598,12 +639,53 @@ for i in range(some_index+1, len(some_list)):
 return ok
 					</code></pre>
 					<aside class="notes"><ul>
-						<li><em>Func and vars renamed, yeah</em></li>
+						<li><em>Believe me. This code rests in some of our repos</em></li>
+						<li>Functions and variables were renamed</li>
 						<li>There're so many wrong things in this code...</li>
-						<li>Can you read it?</li>
-						<li><strong>What would a Pythonista do instead?</strong>
-						<li>A Pythonista writes <strong>Pythonic code</strong>!
-							That is Readable, Runs faster &amp; Uses less mem</li>
+						<li>Can you read it? Nah...</li>
+						<li><em>Things to consider before we refactor this</em>
+					</ul></aside>
+				</section>
+
+				<!-- #################### SLIDE INTERMISSION ##################### -->
+
+				<section data-background="#222" data-transition="fade-in">
+					Original:
+					<pre><code class="python" data-trim data-noescape>
+<mark>ok = False</mark>
+<mark>for i in range(certain_index-1, -1, -1):</mark>
+    some_ord = some_dict.get(ord(some_list[i]))
+    <mark>if some_ord == ord('T'):</mark>
+        continue
+    if some_ord in [ord('L'), ord('D')]:
+        <mark>ok = True</mark>
+        break
+
+<mark>if not ok:</mark>
+    <mark>return False</mark>
+
+<mark>ok = False</mark>
+<mark>for i in range(certain_index+1, len(some_list)):</mark>
+    some_ord = some_dict.get(ord(some_list[i]))
+    <mark>if some_ord == ord('T'):</mark>
+        continue
+    if some_ord in [ord('R'), ord('D')]:
+        <mark>ok = True</mark>
+        <mark>break</mark>
+<mark>return ok</mark>
+					</code></pre>
+					<aside class="notes"><ul>
+						<li>First of course the unnecessary flag up top then
+							again in the middle</li>
+						<li>Then there are the C++ style loops.
+							The first one being backwards</li>
+						<li>Also those nonsense IFs, which are out of the scope of
+							this talk but I just couldn't leave em there</li>
+						<li>Then the unnecessary flag swaps on break</li>
+						<li>And finally, down at the bottom, the attrib and break just
+							before a return (WTF?) also out of scope but anyways</li>
+						<li><em>(PAUSE)</em>This code is so non-pythonic!</li>
+						<li><em>What would a Pythonista do instead?</em>
 					</ul></aside>
 				</section>
 
@@ -612,42 +694,41 @@ return ok
 				<section data-background="#222">
 					Improved
 					<pre><code class="python" data-trim data-noescape>
-for el in some_list[some_index-1::-1]:
-    some_ord = some_dict.get(ord(el))
-    if some_ord == ord('T'):
-        continue
-    if some_ord in [ord('L'), ord('D')]:
+for el in some_list[certain_index-1::-1]:
+    if some_dict.get(ord(el)) in [ord('L'), ord('D')]:
         break
 else:
     return False
 					</code></pre>
-					<pre class="fragment fade-left"><code class="python" data-trim data-noescape>
+					<div class="fragment fade-left">Refactored:
+					<pre><code class="python" data-trim data-noescape>
 from itertools import islice
 
-for el in islice(reversed(some_list), some_index, None):
-<span class="fragment fade-in">    if some_dict.get(ord(el)) in [ord('L'), ord('D')]:
+for el in islice(reversed(some_list), certain_index, None):
+    if some_dict.get(ord(el)) in [ord('L'), ord('D')]:
         break
 else:
     return False
-</span>
-	</code></pre>
-					<div class="fragment fade-left">Refactored:
-					<pre><code class="python" data-trim data-noescape>
-for el in some_list[some_index:]:
-    some_ord = some_dict.get(ord(el))
-    if some_ord == ord('T'):
-        continue
-    if some_ord in [ord('L'), ord('D')]:
+
+for el in islice(some_list, certain_index, None):
+    if some_dict.get(ord(el)) in [ord('L'), ord('D')]:
         return True
+
 return False
 					</code></pre></div>
 					<aside class="notes"><ul>
-						<li><em>Func and vars renamed, code intact</em></li>
-						<li>There are a few issues with the original code, right?</li>
-						<li>Other than it being not readable</li>
-						<li><strong>What would a Pythonista do instead?</strong>
-						<li>A Pythonista writes <strong>Pythonic code</strong>!
-							That is Readable, Runs faster &amp; Uses less mem</li>
+						<li>First we loop like we should ... well, not quite like
+							we should, as you will see shortly</li>
+						<li>Then we use an else statement instead of a flag</li>
+						<li>So, I said we're not looping as we really should
+							why are we not?</li>
+						<li>Because that slice creates a new list in memory!</li>
+						<li><strong>What's the Pythonic solution?</strong></li>
+						<li>Islice, from itertools! A Pythonista uses iterators
+							and generators not because they're fancy and cool.
+							We use them because they work and save time and
+							memory. And they're readable, too! Does this code
+							scale? Sure thing!</li>
 					</ul></aside>
 				</section>
 

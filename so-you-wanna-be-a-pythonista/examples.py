@@ -120,3 +120,69 @@ if cp_value == 0x200d:
 else:
 
     return False
+
+# WTF
+if foo == 0x200d:
+
+    if pos > 0:
+        if a_func(ord(a_list[pos - 1])) == a_value:
+            return True
+    return False
+
+else:
+
+    return False
+
+# WTF
+return foo == 0x200d and pos > 0 and a_func(ord(a_list[pos - 1])) == a_value
+
+
+
+
+
+parsed_date = None
+for _, vals in date_parsers.items():
+    regex = vals['regex']
+    parser = vals['parser']
+
+    if re.match(regex, date):
+        parsed_date = datetime.strptime(date, parser)
+        break
+
+if not parsed_date:
+    raise ValueError('Date could not be parsed.')
+
+return parsed_date
+
+
+
+
+# These are both dictionaries and need to be transformed into frozensets
+for key in ('headers', '_proxy_headers', '_socks_options'):
+    if key in context and context[key] is not None:
+        context[key] = frozenset(context[key].items())
+
+# The socket_options key may be a list and needs to be transformed into a
+# tuple.
+socket_opts = context.get('socket_options')
+if socket_opts is not None:
+    context['socket_options'] = tuple(socket_opts)
+
+# Map the kwargs to the names in the namedtuple - this is necessary since
+# namedtuples can't have fields starting with '_'.
+for key in list(context.keys()):
+    context['key_' + key] = context.pop(key)
+
+
+
+value = tuple(range(10))
+
+other = (value[i] for i in range(len(value) - 1, -1, -1))
+return tuple(other))
+
+
+value = tuple(range(10))
+
+return tuple(reversed(value))
+
+
