@@ -71,13 +71,13 @@
 					<h2>So you wanna be a</h2>
 					<br><br><br><br><br><br><br><br>
 					<h1>Pythonista</h1>
-					<aside class="notes"><ul style="font-size: 0.95em;">
-						<li>Who wants to be a Pythonista? What does it mean to be a Pythonista?</li>
+					<aside class="notes"><ul style="font-size: 0.9em;">
+						<li>Who is a pythonista? Who wants to be a Pythonista? What does it mean to be a Pythonista?</li>
 						<li>It means we all understand each other for we speak the same language</li>
 						<li>We're all used to the same idiom. Thus the expression “idiomatic Python”</li>
 						<li>In order to be a true Pythonista you should abandon your previous mindset entirely...</li>
+						<li>Either if it's a Java mindset, C, C++, Perl, PHP, Ruby or whatever</li>
 						<li>Free your mind of whatever previous mindset you have</li>
-						<li>Either if it's a Java mindset, C, C++, Perl, whatever</li>
 						<li>You gotta fully adopt the Python mindset</li>
 					</ul></aside>
 				</section>
@@ -117,10 +117,10 @@
 						<li>Debugging easiness</li>
 						<li>Shallow learning curve</li>
 						<li>Focus on code's purpose</li>
-						<li>No hassle (do not fight the snake)</li>
+						<li>No hassle (don't fight the snake)</li>
 					</ul>
-					<aside class="notes"><ul style="font-size: 0.8em;">
-						<li><strong>Why do you think it's important write clean and pythonic code?</strong></li>
+					<aside class="notes"><ul style="font-size: 0.79em;">
+						<li><strong>Why do you think it's important to write clean and pythonic code?</strong></li>
 						<li>It increases readability, simplicity and maintainability</li>
 						<li>And readability is about making our lives easier, as code is read more often than it is written</li>
 						<li>Better readability means easier maintainability</li>
@@ -128,8 +128,8 @@
 						<li>Clean, Pythonic, readable code makes on-boarding much easier</li>
 						<li>This is important: it flattens the learning curve for a newcomer Pythonista</li>
 						<li>And definitely for you as well going back to the code six months later.</li>
-						<li>It allows focusing on the concept being expressed by the code</li>
-						<li><strong>without losing time deciphering a cryptic codebase</strong></li>
+						<li>It allows you to focus on the concept being expressed by the code</li>
+						<li><strong>rather than losing time deciphering a cryptic codebase</strong></li>
 					</ul></aside>
 				</section>
 
@@ -184,13 +184,13 @@ for i in range(len(items)):
 for item in items:
     print(item)
 					</code></pre>
-					<aside class="notes"><ul>
+					<aside class="notes"><ul style="font-size: 0.99em;">
 						<li><em>This is how Java or C programmers write a for loop</em></li>
 						<li>And that's ok for Java, C and may other languages</li>
 						<li><strong>Then how do they write a for loop in Python?</strong></li>
 						<li>That's how it's done in Python, right?</li>
 						<li><strong>But... how do they iterate over a list?</strong></li>
-						<li><strong>They do the same. They're used to that</strong></li>
+						<li><strong>They do the same. They're used to that. It's in their mindset</strong></li>
 						<li><strong>What a Pythonista does instead?</strong>
 						<li>This. It's Readable, Runs faster &amp; Uses less mem</li>
 						<li><em>That's so common, you see so much of that out there.
@@ -409,7 +409,8 @@ result_list = [some_func(color=c, label=l)
 					</code></pre></div>
 					<aside class="notes"><ul>
 						<li><em>Func and vars renamed, code intact</em></li>
-						<li>Original code didn't care about the minimum length</li>
+						<li><strong>Important to note</strong>: Original code didn't
+							care about the minimum length</li>
 						<li>Again hard to read and understand because...</li>
 						<li>Yeah, it's <strong>not</strong> readable!</li>
 						<li><strong>What would a Pythonista do instead?</strong>
@@ -453,7 +454,7 @@ for inventor in sorted(inventors, key=itemgetter('name')):
     print(inventor)
 					</code></pre>
 					<aside class="notes"><ul>
-						<li><em>How do Java or C programmers loop over a collection in some order?</em></li>
+						<li><em>How do Java or C programmers loop over a collection in some specific order?</em></li>
 						<li><strong>They use their previous language mindset</strong></li>
 						<li><strong>What a Pythonista does instead?</strong>
 						<li>Sorted! It's Readable, Runs faster &amp; Uses less mem</li>
@@ -487,22 +488,12 @@ for e in sorted(self.data, key=attrgetter('criteria')):
 						<li>Original code doesn't work with Python 3</li>
 						<li>And it's <strong>not</strong> readable!</li>
 						<li><strong>What would a Pythonista do instead?</strong>
-						<li>Key function! It's Readable, Runs faster &amp; Uses less mem</li>
+						<li>Sorted with a key function! It's Readable, Runs faster &amp; Uses less mem</li>
 						<li><em>You gotta know the Python Standard Library!</em></li>
 					</ul></aside>
 				</section>
 
 				<!-- #################### SLIDE FINISH #################### -->
-
-
-
-
-				<section data-background="Yoda-Force-Lightning-Featured.jpg" class="meme">
-					<h2>A Pythonista's strength</h2>
-					<h2>flows from the</h2>
-					<br><br><br><br>
-					<h1>Standard Library</h1>
-				</section>
 
 
 
@@ -758,6 +749,24 @@ return False
 
 
 
+				<section data-background="Yoda-Force-Lightning-Featured.jpg" class="meme">
+					<h2>A Pythonista's strength</h2>
+					<h2>flows from the</h2>
+					<br><br><br><br>
+					<h1>Standard Library</h1>
+					<aside class="notes"><ul style="font-size: 0.9em;">
+						<li>We saw some nice things from the standard library</li>
+						<li>such as enumerate, zip, reversed, sorted, key functions</li>
+						<li>operators, functools, itertools, and what not</li>
+						<li>the python standard library is one of the most amazing aspect
+							of python</li>
+						<li>and we as pythonistas should learn how to use it</li>
+					</ul></aside>
+				</section>
+
+
+
+
 				<section data-background="hammer-screw.jpg" class="meme">
 					<h2>Let's all Understand</h2>
 					<h2>and use the</h2>
@@ -767,6 +776,7 @@ return False
 						<li>So, as we come to the end of this part, I urge you to
 							write clean, readable, idiomatic, pythonic code!</li>
 						<li>Read as much code as you can to absorb the python mindset</li>
+						<li>Read the stdlib source code, for instance!</li>
 						<li>"Can you hammer a screw?"</li>
 						<li>Well, try it! You usually can</li>
 						<li>But it's so difficult!</li>
@@ -783,6 +793,12 @@ return False
 
 
 				<section data-background="to-be-continued.jpg" class="meme">
+					<h1>See you in Part 2</h1>
+					<br><br><br><br><br><br><br><br><br>
+					<h2>Thanks!</h2>
+					<aside class="notes"><ul>
+						<li><em>Ah! Let me give you some sneak preview into part two</em></li>
+					</ul></aside>
 				</section>
 
 
@@ -792,7 +808,7 @@ return False
 
 				<section data-background="#222">
 					<h3>Part 2 sneak preview</h3>
-					<div class="fragment fade-left">Don't:
+					<div>Don't:
 					<pre><code class="python" data-trim data-noescape>
 foobar(collection[0], collection[1])
 					</code></pre>
@@ -810,6 +826,12 @@ foobar(collection[0], collection[1:-1], collection[-1])
 head, *middle, tail = collection
 foobar(head, middle, tail)
 					</code></pre></div>
+					<aside class="notes"><ul>
+						<li>In part two we'll have some more do's and dont's</li>
+						<li>like this</li>
+						<li><strong>and this</strong></li>
+						<li><em>also...</em></li>
+					</ul></aside>
 				</section>
 
 				<!-- #################### SLIDE FINISH #################### -->
@@ -820,7 +842,7 @@ foobar(head, middle, tail)
 				<!-- #################### SLIDE INTERMISSION ##################### -->
 
 				<section data-background="#222">
-					<div class="fragment fade-left">Don't:
+					<div>Don't:
 					<pre><code class="python" data-trim data-noescape>
 head, *discard, tail = collection
 foobar(head, tail)
@@ -842,6 +864,10 @@ matrix = [[0] * 3 for _ in range(3)]
 					<pre><code class="python" data-trim data-noescape>
 matrix = [[0] * 3] * 3
 					</code></pre></div>
+					<aside class="notes"><ul>
+						<li>like this</li>
+						<li><strong>and this</strong></li>
+					</ul></aside>
 				</section>
 
 				<!-- #################### SLIDE FINISH #################### -->
@@ -868,14 +894,14 @@ matrix = [[0] * 3] * 3
 						<li>...</li>
 					</ul>
 					<aside class="notes"><ul>
-						<li>So in part two we'll highlight some dictionary skills</li>
+						<li>All in all, part two will highlight some dictionary skills</li>
 						<li>Remember how to work with tuples, namedtuples, sets</li>
 						<li>Understand what multiple state variables are</li>
 						<li>We'll talk about strings, sequences, decorators, context managers</li>
 						<li>How to use locks</li>
 						<li>How to open and close files</li>
 						<li>And what not</li>
-						<li><strong>So make sure you don't miss part 2. Thanks!</strong></li>
+						<li><em>So make sure you don't miss part 2. Thanks!</em></li>
 					</ul></aside>
 				</section>
 
