@@ -54,6 +54,10 @@
 					3px 3px 0 black, 3px -3px 0 black, -3px -3px 0 black, -3px 3px 0 black, 3px 2px 0 black, 3px -2px 0 black, -3px -2px 0 black, -3px 2px 0 black, 3px 1px 0 black, 3px -1px 0 black, -3px -1px 0 black, -3px 1px 0 black, 3px 0px 0 black, 3px 0px 0 black, -3px 0px 0 black, -3px 0px 0 black, 2px 3px 0 black, 2px -3px 0 black, -2px -3px 0 black, -2px 3px 0 black, 2px 2px 0 black, 2px -2px 0 black, -2px -2px 0 black, -2px 2px 0 black, 2px 1px 0 black, 2px -1px 0 black, -2px -1px 0 black, -2px 1px 0 black, 2px 0px 0 black, 2px 0px 0 black, -2px 0px 0 black, -2px 0px 0 black, 1px 3px 0 black, 1px -3px 0 black, -1px -3px 0 black, -1px 3px 0 black, 1px 2px 0 black, 1px -2px 0 black, -1px -2px 0 black, -1px 2px 0 black, 1px 1px 0 black, 1px -1px 0 black, -1px -1px 0 black, -1px 1px 0 black, 1px 0px 0 black, 1px 0px 0 black, -1px 0px 0 black, -1px 0px 0 black, 0px 3px 0 black, 0px -3px 0 black, 0px -3px 0 black, 0px 3px 0 black, 0px 2px 0 black, 0px -2px 0 black, 0px -2px 0 black, 0px 2px 0 black, 0px 1px 0 black, 0px -1px 0 black, 0px -1px 0 black, 0px 1px 0 black, 0px 0px 0 black, 0px 0px 0 black, 0px 0px 0 black, 0px 0px 0 black, 0 0 0 black;
 				-webkit-font-smoothing: antialiased;
 			}
+			.reveal cite {
+				font-size: .75em !important;
+				margin-right: -350px !important;
+			  }
 		</style>
 	</head>
 	<body>
@@ -67,10 +71,14 @@
 					<h2>So you wanna be a</h2>
 					<br><br><br><br><br><br><br><br>
 					<h1>Pythonista</h1>
-					<aside class="notes"><ul>
-						<li>Abandon your previous mindset entirely... Free your mind of whatever previous mindset you have</li>
+					<aside class="notes"><ul style="font-size: 0.95em;">
+						<li>Who wants to be a Pythonista? What does it mean to be a Pythonista?</li>
+						<li>It means we all understand each other for we speak the same language</li>
+						<li>We're all used to the same idiom. Thus the expression “idiomatic Python”</li>
+						<li>In order to be a true Pythonista you should abandon your previous mindset entirely...</li>
+						<li>Free your mind of whatever previous mindset you have</li>
 						<li>Either if it's a Java mindset, C, C++, Perl, whatever</li>
-						<li>You gotta be in the Python mindset</li>
+						<li>You gotta fully adopt the Python mindset</li>
 					</ul></aside>
 				</section>
 
@@ -88,10 +96,10 @@
 							&amp; efficient <strong><em>Pythonic</em></strong> code</li>
 					</ul>
 					<aside class="notes"><ul>
-						<li>This is such a large subject for brief talk</li>
+						<li>This is such a large subject for a single talk</li>
 						<li>So I’ll split it in two parts</li>
-						<li>Today we'll talk about loops, iteration, </li>
-						<li>And why it's important to write clean and pythonic code</li>
+						<li>Today we'll talk about loops, iteration,</li>
+						<li>And why it's important to write readable, clean and pythonic code</li>
 					</ul></aside>
 				</section>
 
@@ -100,27 +108,40 @@
 
 
 				<section data-background="#222">
-					<h2>Key takeaways</h2>
-					<br>
-					<ul>
-						<li style="font-size: 1.38em;">Write cleanly and pythonic
-							<ul>
-								<li>Readability</li>
-								<li>Simplicity</li>
-								<li>Maintainability</li>
-								<li>Shallow learning curve</li>
-								<li>Focus on business logic</li>
-								<li>No hassle (don't fight the snake)</li>
-							</ul>
-						</li>
+					<h2>Key takeaways
+					<div style="font-size: 0.32em; line-height: 0.75em"><br>(why should we code cleanly and “pythonically”?)</div></h2>
+					<ul class="fragment fade-in">
+						<li>Readability</li>
+						<li>Simplicity</li>
+						<li>Maintainability</li>
+						<li>Debugging easiness</li>
+						<li>Shallow learning curve</li>
+						<li>Focus on code's purpose</li>
+						<li>No hassle (do not fight the snake)</li>
 					</ul>
+					<aside class="notes"><ul style="font-size: 0.8em;">
+						<li><strong>Why do you think it's important write clean and pythonic code?</strong></li>
+						<li>It increases readability, simplicity and maintainability</li>
+						<li>And readability is about making our lives easier, as code is read more often than it is written</li>
+						<li>Better readability means easier maintainability</li>
+						<li>it also makes debugging so much easier, right?</li>
+						<li>Clean, Pythonic, readable code makes on-boarding much easier</li>
+						<li>This is important: it flattens the learning curve for a newcomer Pythonista</li>
+						<li>And definitely for you as well going back to the code six months later.</li>
+						<li>It allows focusing on the concept being expressed by the code</li>
+						<li><strong>without losing time deciphering a cryptic codebase</strong></li>
+					</ul></aside>
+				</section>
+
+
+
+
+
+				<section data-background="#222">
+					<blockquote><em>“Readability is the ease with which a reader can understand a written text.”</em></blockquote>
+					<cite> – Wikipedia, 22 April 2011‎</cite>
 					<aside class="notes"><ul>
-						<li>Writing clean and pythonic code not only increases readability,
-							simplicity and maintainability</li>
-						<li>it also flattens the learning curve for a newcomer Pythonista</li>
-						<li>in a way that one can focus on the business logic</li>
-						<li>without losing time deciphering non-pythonic codebases.</li>
-						<li>I present this for I believe we can all be better Pythonistas</li>
+						<li>I present this talk for I believe we can all be better Pythonistas</li>
 						<li><strong>So, without further ado...</strong></li>
 					</ul></aside>
 				</section>
@@ -674,7 +695,7 @@ return ok
         <mark>break</mark>
 <mark>return ok</mark>
 					</code></pre>
-					<aside class="notes"><ul>
+					<aside class="notes"><ul style="font-size: 0.95em;">
 						<li>First of course the unnecessary flag up top then
 							again in the middle</li>
 						<li>Then there are the C++ style loops.
@@ -716,7 +737,7 @@ for el in islice(some_list, certain_index, None):
 
 return False
 					</code></pre></div>
-					<aside class="notes"><ul>
+					<aside class="notes"><ul style="font-size: 0.95em;">
 						<li>First we loop like we should ... well, not quite like
 							we should, as you will see shortly</li>
 						<li>Then we use an else statement instead of a flag</li>
@@ -742,14 +763,18 @@ return False
 					<h2>and use the</h2>
 					<br><br><br><br><br><br>
 					<h1>Python Mindset</h1>
-					<aside class="notes"><ul>
+					<aside class="notes"><ul style="font-size: 0.9em;">
+						<li>So, as we come to the end of this part, I urge you to
+							write clean, readable, idiomatic, pythonic code!</li>
+						<li>Read as much code as you can to absorb the python mindset</li>
 						<li>"Can you hammer a screw?"</li>
-						<li>Well, try it</li>
-						<li>You usually can</li>
-						<li>But its so difficult!</li>
+						<li>Well, try it! You usually can</li>
+						<li>But it's so difficult!</li>
 						<li>And the screw can tear the material</li>
-						<li>Or bend sideways</li>
-						<li>Same goes with coding</li>
+						<li>Or bend sideways like in this picture</li>
+						<li>........</li>
+						<li>Same goes with coding!</li>
+						<li><strong>Hope to see you in part 2! Thanks!</strong></li>
 					</ul></aside>
 				</section>
 
@@ -758,11 +783,117 @@ return False
 
 
 				<section data-background="to-be-continued.jpg" class="meme">
-					<h1>See you in Part 2</h1>
-					<br><br><br><br><br><br><br><br><br>
-					<h2>Thanks!</h2>
 				</section>
-		</div>
+
+
+
+
+				<!-- #################### SLIDE INTERMISSION ##################### -->
+
+				<section data-background="#222">
+					<h3>Part 2 sneak preview</h3>
+					<div class="fragment fade-left">Don't:
+					<pre><code class="python" data-trim data-noescape>
+foobar(collection[0], collection[1])
+					</code></pre>
+					Instead:
+					<pre><code class="python" data-trim data-noescape>
+first, second = collection
+foobar(first, second)
+					</code></pre></div>
+					<div class="fragment fade-left">Don't:
+					<pre><code class="python" data-trim data-noescape>
+foobar(collection[0], collection[1:-1], collection[-1])
+					</code></pre>
+					Instead:
+					<pre><code class="python" data-trim data-noescape>
+head, *middle, tail = collection
+foobar(head, middle, tail)
+					</code></pre></div>
+				</section>
+
+				<!-- #################### SLIDE FINISH #################### -->
+
+
+
+
+				<!-- #################### SLIDE INTERMISSION ##################### -->
+
+				<section data-background="#222">
+					<div class="fragment fade-left">Don't:
+					<pre><code class="python" data-trim data-noescape>
+head, *discard, tail = collection
+foobar(head, tail)
+					</code></pre>
+					Instead:
+					<pre><code class="python" data-trim data-noescape>
+head, *_, tail = collection
+foobar(head, tail)
+					</code></pre></div>
+					<div class="fragment fade-left">Don't:
+					<pre><code class="python" data-trim data-noescape>
+matrix = [[0] * 3 for unused_index in range(3)]
+					</code></pre>
+					Instead:
+					<pre><code class="python" data-trim data-noescape>
+matrix = [[0] * 3 for _ in range(3)]
+					</code></pre>
+					Or even better!
+					<pre><code class="python" data-trim data-noescape>
+matrix = [[0] * 3] * 3
+					</code></pre></div>
+				</section>
+
+				<!-- #################### SLIDE FINISH #################### -->
+
+
+
+
+				<!-- #################### SLIDE INTERMISSION ##################### -->
+
+				<section data-background="#222">
+					<h3>Part 2 will bring</h3>
+					<ul>
+						<li>Dictionary skils</li>
+						<li>Tuples skills</li>
+						<li>Namedtuples skills</li>
+						<li>Sets skills</li>
+						<li>Multiple state variables</li>
+						<li>Strings</li>
+						<li>Sequences</li>
+						<li>Decorators</li>
+						<li>Context Managers</li>
+						<li>Locks</li>
+						<li>Files</li>
+						<li>...</li>
+					</ul>
+					<aside class="notes"><ul>
+						<li>So in part two we'll highlight some dictionary skills</li>
+						<li>Remember how to work with tuples, namedtuples, sets</li>
+						<li>Understand what multiple state variables are</li>
+						<li>We'll talk about strings, sequences, decorators, context managers</li>
+						<li>How to use locks</li>
+						<li>How to open and close files</li>
+						<li>And what not</li>
+						<li><strong>So make sure you don't miss part 2. Thanks!</strong></li>
+					</ul></aside>
+				</section>
+
+				<!-- #################### SLIDE FINISH #################### -->
+
+
+
+
+				<section data-background="to-be-continued.jpg" class="meme">
+						<h1>Don't miss Part 2</h1>
+						<br><br><br><br><br><br><br><br><br>
+						<h2>Thanks!</h2>
+					</section>
+
+
+
+
+			</div>
 
 		<script src="lib/js/head.min.js"></script>
 		<script src="js/reveal.js"></script>
